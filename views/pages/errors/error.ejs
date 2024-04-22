@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('../../partials/head.ejs') %> 
+  </head>
+  <body>
+    <div><p><%= status %></p></div>
+    <section class="messages">
+        <% errors.forEach((message) => { %>
+        <p><%= message %></p>
+        <% }); %>
+    </section>
+    </body>
+</html>

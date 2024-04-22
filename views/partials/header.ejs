@@ -1,0 +1,62 @@
+<nav id="my-nav" class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <img
+          src="images/va_logo_m.png"
+          alt=""
+          width="30"
+          height="24"
+        />
+        <%= myTitle%></a
+      >
+      <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <p class="nav-link">КОРИСНИК: 
+              <%= loggedInUser.username%> | 
+              УЛОГА:
+              <%= loggedInUser.role.roleName%> 
+            </p>
+          </li>
+        <% if (loggedInUser.role.roleName === "KdAdmin") {%>
+          <li class="nav-item"><a href="add-kd-post" class="nav-link active">Додај објаву</a></li>
+        <% } else if (loggedInUser.role.roleName === "StAdmin") { %>
+          <li class="nav-item"><a href="add-st-post" class="nav-link active">Додај објаву</a></li>
+        <% } %>
+        </ul>
+      </div>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+        <form class="d-flex" method="GET" action="/kadeti">
+          <input
+            class="form-control me-2"
+            type="search"
+            name="term"
+            placeholder="Претрага..."
+            aria-label="Search"
+            id="my-search-field"
+            value="<%= term%>"
+            onsearch="window.location.href = window.location.pathname"
+          />
+          <button
+            id="my-search-btn"
+            class="btn btn-outline-primary"
+            type="submit"
+          >
+            Претражи
+          </button>
+        </form>
+      </div>
+    </div>
+  </nav>

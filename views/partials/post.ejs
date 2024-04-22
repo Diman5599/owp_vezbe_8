@@ -1,0 +1,19 @@
+<div class="card mt-4">
+            <div class="card-body">
+              <h5 class="card-title"> <%= post.title%></h5>
+              <p class="card-text">
+                <%= post.content%>
+              </p>
+              <p>Поставио: <%= post.user.username%></p>
+              <a
+                onclick="openCardModal(this)"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#contentModal"
+                >Прочитај</a
+              >
+              <a class="btn btn-danger" onclick="deletePost(<%= post.id %>)">
+                Обриши
+              </a>
+            </div>
+          </div>

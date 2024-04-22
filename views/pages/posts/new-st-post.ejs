@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="sr">
+  <head> 
+    <%- include('../../partials/head.ejs') %> 
+  </head> 
+  <body>
+    <form action="add-st-post" method="post">
+        <label for="title">Наслов</label>
+        <input name="title" type="text"/>
+        <label for="content">Садржај</label>
+        <input name="content" type="text"/>
+        <button type="submit">Постави</button>
+    </form>
+  </body>
+</html>

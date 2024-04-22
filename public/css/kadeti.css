@@ -1,0 +1,13 @@
+#my-nav {
+    background-color: darkgray !important;
+}
+
+#my-nav img {
+    width: auto !important;
+}
+
+.card-text{
+    overflow: hidden; 
+    white-space: nowrap; 
+    text-overflow: ellipsis;
+}

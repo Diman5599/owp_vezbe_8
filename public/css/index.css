@@ -1,0 +1,14 @@
+body { 
+    min-height: 100vh !important;
+    overflow: hidden; 
+}
+
+.banner img{
+    max-width: 700px;
+}
+
+@media screen and (max-width: 768px) {
+    .banner img {
+        max-width: 300px;
+    }
+}
