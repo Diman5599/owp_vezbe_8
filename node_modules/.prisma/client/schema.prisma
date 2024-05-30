@@ -2,7 +2,8 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-3.0.x"]
 }
 
 datasource db {
@@ -29,6 +30,7 @@ model User {
   username String @unique
   password String 
   email String @unique
+  emailVerified Boolean @default(true)
   userRoleId Int 
   role UserRole @relation(fields: [userRoleId], references: [id])
   posts Post[]

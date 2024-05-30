@@ -62,7 +62,17 @@ const delStPost = (req, res) => {
     })
 }
 
+const apiGetAllKdPosts = (req, res) => {
+    postsSvc.getKdPosts(req.query.term).then(
+        (posts) => { 
+            res.status = 200
+            res.json(posts)
+        }
+    )
+}
+
 module.exports = {
+    apiGetAllKdPosts: apiGetAllKdPosts,
     getAllKdPosts: getAllKdPosts,
     getAllStPosts: getAllStPosts,
     showAddKdPost: showAddKdPost,

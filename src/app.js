@@ -1,12 +1,17 @@
 const express = require('express');
 const session = require('express-session');
 const passport = require('passport')
+const cors = require('cors')
 
 const SQLiteStore = require('connect-sqlite3')(session);
 
 const postsRoutes = require('./routes/posts.js')
 const indexRoutes = require('./routes/index.js')
 const authRoutes = require('./routes/auth.js')
+const postsApiRoutes = require('./routes/api/posts.js')
+const apiAuthRoutes = require('./routes/api/auth.js')
+
+
 
 const {requestLog} = require('./middleware/winston-logging.js')
 
@@ -29,6 +34,7 @@ app.use(session(
 
 app.use(passport.initialize())
 app.use(passport.authenticate('session'))
+app.use(cors())
 
 //middleware-i na nivou aplikacije
 app.use((req, res, next) => {
@@ -49,6 +55,8 @@ app.use(requestLog)
 app.use(postsRoutes.router)
 app.use(indexRoutes.router)
 app.use(authRoutes.router)
+app.use('/api', postsApiRoutes.router)
+app.use('/api', apiAuthRoutes.router)
 
 const port = process.env.SERVER_PORT
 const host = process.env.SERVER_HOST
